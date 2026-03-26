@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# Security headers
+Header set X-Content-Type-Options nosniff
+Header set X-Frame-Options SAMEORIGIN
+Header set Referrer-Policy strict-origin-when-cross-origin
+
+# Pretty URLs for news and products
+RewriteRule ^news/([a-zA-Z0-9-]+)/?$ public/article.php?slug=$1 [L,QSA]
+RewriteRule ^category/([a-zA-Z0-9-]+)/?$ public/category.php?slug=$1 [L,QSA]
+RewriteRule ^product/([a-zA-Z0-9-]+)/?$ public/product.php?slug=$1 [L,QSA]
+RewriteRule ^shop/?$ public/shop.php [L,QSA]
+RewriteRule ^cart/?$ public/cart.php [L,QSA]
+RewriteRule ^checkout/?$ public/checkout.php [L,QSA]
+RewriteRule ^news/?$ public/news.php [L,QSA]
+RewriteRule ^sitemap\.xml$ public/sitemap.php [L,QSA]
+RewriteRule ^robots\.txt$ public/robots.php [L,QSA]
+RewriteRule ^$ public/index.php [L,QSA]
